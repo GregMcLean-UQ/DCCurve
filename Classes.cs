@@ -13,7 +13,7 @@ namespace DCCurve
         readonly double Ci;
         readonly double PAR;
         readonly double assimilationRate;
-       public DataItem(double[] items)
+        public DataItem(double[] items)
         {
             Ci = items[0];
             PAR = items[1];
@@ -22,9 +22,9 @@ namespace DCCurve
     }
     class DATA
     {
-        readonly double LeafTempereature;
+        readonly double leafTempereature;
         readonly List<DataItem> genoData;
-        public DATA(string fileName)
+        public DATA(string fileName, double lt)
         {
             // Read the data file and load the ovserved data.
             // Ci,PAR,Scorpio
@@ -36,7 +36,17 @@ namespace DCCurve
                 var items = Array.ConvertAll(line.Split(',').ToArray(), Double.Parse);
                 genoData.Add(new DataItem(items));
             }
+            leafTempereature = lt;
         }
 
+    }
+   public class Constants
+    {
+      public  double abs, f, gm25, x, α, gbsT, Om, Rd25, Phi;
+
+    }
+    public class DCCurve
+    {
+       public Constants constants;
     }
 }

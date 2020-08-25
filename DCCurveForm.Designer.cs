@@ -33,6 +33,8 @@
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tLtextBox = new System.Windows.Forms.TextBox();
+            this.LoadModelLabel = new System.Windows.Forms.LinkLabel();
+            this.ModelLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ObsLabel
@@ -49,6 +51,7 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "\"C:\\Projects\\DCCurve\\Data\\data.csv\"";
+            this.openFileDialog.Filter = "Data File (*.csv)|*.csv|Model File (*.xml)|*.xms";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
             // fileNameLabel
@@ -77,11 +80,33 @@
             this.tLtextBox.TabIndex = 3;
             this.tLtextBox.Text = "30";
             // 
+            // LoadModelLabel
+            // 
+            this.LoadModelLabel.AutoSize = true;
+            this.LoadModelLabel.Location = new System.Drawing.Point(21, 76);
+            this.LoadModelLabel.Name = "LoadModelLabel";
+            this.LoadModelLabel.Size = new System.Drawing.Size(75, 16);
+            this.LoadModelLabel.TabIndex = 4;
+            this.LoadModelLabel.TabStop = true;
+            this.LoadModelLabel.Text = "Load Model";
+            this.LoadModelLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LoadModelLabel_LinkClicked);
+            // 
+            // ModelLabel
+            // 
+            this.ModelLabel.AutoSize = true;
+            this.ModelLabel.Location = new System.Drawing.Point(159, 76);
+            this.ModelLabel.Name = "ModelLabel";
+            this.ModelLabel.Size = new System.Drawing.Size(43, 16);
+            this.ModelLabel.TabIndex = 5;
+            this.ModelLabel.Text = "Model";
+            // 
             // DCCurveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 554);
+            this.Controls.Add(this.ModelLabel);
+            this.Controls.Add(this.LoadModelLabel);
             this.Controls.Add(this.tLtextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fileNameLabel);
@@ -102,6 +127,8 @@
         private System.Windows.Forms.Label fileNameLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tLtextBox;
+        private System.Windows.Forms.LinkLabel LoadModelLabel;
+        private System.Windows.Forms.Label ModelLabel;
     }
 }
 
