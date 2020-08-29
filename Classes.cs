@@ -52,17 +52,50 @@ namespace DCCurve
             VpmaxP25, VpmaxEa, RdP25, RdEa, JP25, JTMin, JTOpt, JTMax, JMaxC, Jbeta, GmP25, GmTMin, GmTOpt, GmTMax, GmMaxC, Gmbeta;
 
     }
+
+
     public class DCCurve
     {
         public Constants constants;
         public TResponse tResponse;
         Variables vars;
-        double theta = 0.05;
-        double PSlight_absorption = 2.2;
-        double Jmaxt = 437.4645449;
+
         public void CalcVariales(double leafTemperature)
         {
             vars = new Variables(tResponse, constants, leafTemperature);
+        }
+        public double CalcAj(double Ci, double PAR, double theta, double PSlight_absorption, double Jmaxt)
+        {
+            double Aj = 0;
+            // # EQN 15
+            double I2 = PAR * constants.abs * (1 - constants.f) / PSlight_absorption;
+            // # EQN 14
+            double Jt = (I2 + Jmaxt - Math.Pow((Math.Pow(I2 + Jmaxt, 2) - 4 * theta * Jmaxt * I2), 0.5)) / (2 * theta);
+            // x1 = 1-x)*J/3 (E57)
+            double x1 = (1 - constants.x) * Jt / 3;
+            double x2 = 7.0 / 3.0 * vars.gammaT;
+            double x3 = 0;
+            double x4 = 0;
+            double x5 = constants.x * Jt / constants.Phi;
+            double x6 = 1;
+            double x7 = 0;
+            double x8 = 1;
+            double x9 = 1;
+            // #EQN 11
+            double a = constants.alpha / 0.047 * vars.RdT * x2 * x9 - constants.alpha / 0.047 * vars.gammaT * x1 * x9 - constants.gbsT * Ci + constants.gbsT * (1 / vars.gmT) * vars.RdT -
+                constants.gbsT * (1 / vars.gmT) * x1 - constants.Om * constants.gbsT * x2 - constants.gbsT * x3 + vars.RmT * x8 - Ci * x4 * x8 + (1 / vars.gmT) * vars.RdT *
+                x4 * x8 - (1 / vars.gmT) * x1 * x4 * x8 + vars.RdT * x6 * x8 - x1 * x6 * x8 - x5 * x8 + x7 * x8;
+            // #EQN 13
+            double d = -constants.alpha / 0.047 * x2 * x9 + constants.gbsT * (1 / vars.gmT) + (1 / vars.gmT) * x4 * x8 + x6 * x8;
+            //  #EQN 12
+            double b = d * (-constants.gbsT * Ci * vars.RdT + constants.gbsT * Ci * x1 - constants.Om * constants.gbsT * vars.RdT * x2 - constants.gbsT * vars.RdT * x3 - constants.Om *
+                constants.gbsT * vars.gammaT * x1 + vars.RmT * vars.RdT * x8 - vars.RmT * x1 * x8 - Ci * vars.RdT * x4 * x8 + Ci * x1 * x4 * x8 - vars.RdT * x7 * x8 + x1 * x5 * x8 - x1 * x7 * x8);
+            double c = -a;
+            //  #EQN 14
+            Aj = (-(Math.Pow((Math.Pow(a, 2) - 4 * b), 0.5)) + c) / (2 * d);
+
+
+            return Aj;
         }
 
     }

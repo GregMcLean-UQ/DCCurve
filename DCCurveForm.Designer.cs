@@ -43,6 +43,7 @@
             this.thetaBox = new System.Windows.Forms.TextBox();
             this.psBox = new System.Windows.Forms.TextBox();
             this.jMaxBox = new System.Windows.Forms.TextBox();
+            this.PlotLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // ObsLabel
@@ -110,7 +111,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(856, 19);
+            this.linkLabel1.Location = new System.Drawing.Point(1080, 19);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(65, 16);
             this.linkLabel1.TabIndex = 6;
@@ -178,11 +179,23 @@
             this.jMaxBox.TabIndex = 13;
             this.jMaxBox.Text = "437.4645449";
             // 
+            // PlotLabel
+            // 
+            this.PlotLabel.AutoSize = true;
+            this.PlotLabel.Location = new System.Drawing.Point(21, 288);
+            this.PlotLabel.Name = "PlotLabel";
+            this.PlotLabel.Size = new System.Drawing.Size(31, 16);
+            this.PlotLabel.TabIndex = 14;
+            this.PlotLabel.TabStop = true;
+            this.PlotLabel.Text = "Plot";
+            this.PlotLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.PlotLabel_LinkClicked);
+            // 
             // DCCurveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 554);
+            this.ClientSize = new System.Drawing.Size(1157, 554);
+            this.Controls.Add(this.PlotLabel);
             this.Controls.Add(this.jMaxBox);
             this.Controls.Add(this.psBox);
             this.Controls.Add(this.thetaBox);
@@ -223,6 +236,7 @@
         private System.Windows.Forms.TextBox thetaBox;
         private System.Windows.Forms.TextBox psBox;
         private System.Windows.Forms.TextBox jMaxBox;
+        private System.Windows.Forms.LinkLabel PlotLabel;
     }
 }
 

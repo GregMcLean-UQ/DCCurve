@@ -71,6 +71,27 @@ namespace DCCurve
             sw.Flush();
             sw.Close();
         }
+
+        private void PlotLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // For each of the observed data calculate a predicted value;
+            // Graph the result
+            double theta = 0.05;
+            double PSlight_absorption = 2.2;
+            double Jmaxt = 437.4645449;
+
+            double Ci = 42.71124566;
+            double PAR = 1999.392456;
+
+            double val = dCCurve.CalcAj( Ci,  PAR,  theta,  PSlight_absorption,  Jmaxt);
+
+        }
     }
 }
 
+/*
+ * double theta = 0.05;
+        double PSlight_absorption = 2.2;
+        double Jmaxt = 437.4645449;
+public double CalcAj(double Ci, double PAR, double theta, double PSlight_absorption, double Jmaxt)
+*/
