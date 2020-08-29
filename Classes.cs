@@ -40,13 +40,20 @@ namespace DCCurve
         }
 
     }
-   public class Constants
+    public class Constants
     {
-      public  double abs, f, gm25, x, alpha, gbsT, Om, Rd25, Phi;
+        public double abs, f, gm25, x, alpha, gbsT, Om, Rd25, Phi;
+
+    }
+    public class TResponse
+    {
+        public double KcP25, KcEa, KoP25, KoEa, VcmaxP25, VcmaxEa, Vcmax_VomaxP25, Vcmax_VomaxEa, KpP25, KpEa,
+            VpmaxP25, VpmaxEa, RdP25, RdEa, JP25, JTMin, JTOpt, JTMax, JMaxC, Jbeta, GmP25, GmTMin, GmTOpt, GmTMax, GmMaxC, Gmbeta;
 
     }
     public class DCCurve
     {
-       public Constants constants;
+        public Constants constants;
+        public TResponse tResponse;
     }
 }

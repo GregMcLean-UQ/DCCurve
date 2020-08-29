@@ -25,6 +25,7 @@ namespace DCCurve
 
         private void ObsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            // Read the Observed data
             fileNameLabel.Text = "";
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
@@ -34,6 +35,7 @@ namespace DCCurve
 
         private void LoadModelLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            // read the xml file with constants and temperature response parameters
             ModelLabel.Text = "";
             openFileDialog.FilterIndex = 2;
             openFileDialog.FileName = @"C:\Projects\DCCurve\DCCurve.xml";
@@ -57,12 +59,12 @@ namespace DCCurve
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            dCCurve = new DCCurve();
-            dCCurve.constants = new Constants();
+        //    dCCurve = new DCCurve();
+        //    dCCurve.constants = new Constants();
 
             XMLS = new System.Xml.Serialization.XmlSerializer(new DCCurve().GetType());
 
-            StreamWriter sw = new StreamWriter(@"C:\Projects\DCCurve\DCCurve.xml");
+            StreamWriter sw = new StreamWriter(@"C:\Projects\DCCurve\DCCurve_.xml");
 
             XMLS.Serialize(sw, dCCurve);
 
