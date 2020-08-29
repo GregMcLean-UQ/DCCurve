@@ -20,11 +20,11 @@ namespace DCCurve
             assimilationRate = items[2];
         }
     }
-    class DATA
+    class GENODATA
     {
         readonly double leafTempereature;
         readonly List<DataItem> genoData;
-        public DATA(string fileName, double lt)
+        public GENODATA(string fileName, double lt)
         {
             // Read the data file and load the ovserved data.
             // Ci,PAR,Scorpio
@@ -42,7 +42,7 @@ namespace DCCurve
     }
    public class Constants
     {
-      public  double abs, f, gm25, x, α, gbsT, Om, Rd25, Phi;
+      public  double abs, f, gm25, x, alpha, gbsT, Om, Rd25, Phi;
 
     }
     public class DCCurve
