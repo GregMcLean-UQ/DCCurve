@@ -30,7 +30,30 @@ namespace DCCurve
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
             fileNameLabel.Text = openFileDialog.FileName;
-            data = new GENODATA(openFileDialog.FileName, Convert.ToDouble(tLtextBox.Text));
+            data = new GENODATA(openFileDialog.FileName);
+
+            DisplayData();
+        }
+        private void DisplayData()
+        {
+            // Display the data in the grid.
+            foreach (DataItem d in data.genoData)
+            {
+                dataGridView.Rows.Add(d.Ci, d.PAR, d.assimilationRate, d.predicted);
+            }
+            PlotData();
+        }
+        private void PlotData()
+        {
+            // Chart the data
+            chart.Series[0].Points.Clear();
+            chart.Series[1].Points.Clear();
+            foreach (DataItem d in data.genoData)
+            {
+                chart.Series[0].Points.AddXY(d.PAR, d.assimilationRate);
+                chart.Series[1].Points.AddXY(d.PAR, d.predicted);
+            }
+
         }
 
         private void LoadModelLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -80,18 +103,17 @@ namespace DCCurve
             double PSlight_absorption = 2.2;
             double Jmaxt = 437.4645449;
 
-            double Ci = 42.71124566;
-            double PAR = 1999.392456;
+            // double Ci = 42.71124566;
+            //  double PAR = 1999.392456;
 
-            double val = dCCurve.CalcAj( Ci,  PAR,  theta,  PSlight_absorption,  Jmaxt);
+            for (int i = 0; i < data.genoData.Count; i++)
+            {
+                double Ci = data.genoData[i].Ci;
+                double PAR = data.genoData[i].PAR;
+                data.genoData[i].predicted =  dCCurve.CalcAj(Ci, PAR, theta, PSlight_absorption, Jmaxt);
+            }
+            DisplayData();
 
         }
     }
 }
-
-/*
- * double theta = 0.05;
-        double PSlight_absorption = 2.2;
-        double Jmaxt = 437.4645449;
-public double CalcAj(double Ci, double PAR, double theta, double PSlight_absorption, double Jmaxt)
-*/

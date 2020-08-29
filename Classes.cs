@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DCCurve
 {
     class DataItem
     {
         // Ci,PAR,Scorpio
-        readonly double Ci;
-        readonly double PAR;
-        readonly double assimilationRate;
+        public double Ci;
+        public double PAR;
+        public double assimilationRate;
+        public double predicted;
         public DataItem(double[] items)
         {
             Ci = items[0];
@@ -23,9 +26,9 @@ namespace DCCurve
     }
     class GENODATA
     {
-        readonly double leafTempereature;
-        readonly List<DataItem> genoData;
-        public GENODATA(string fileName, double lt)
+       
+        public List<DataItem> genoData;
+        public GENODATA(string fileName)
         {
             // Read the data file and load the ovserved data.
             // Ci,PAR,Scorpio
@@ -37,7 +40,7 @@ namespace DCCurve
                 var items = Array.ConvertAll(line.Split(',').ToArray(), Double.Parse);
                 genoData.Add(new DataItem(items));
             }
-            leafTempereature = lt;
+           
         }
 
     }
@@ -120,5 +123,6 @@ namespace DCCurve
             RmT = RdT / 2;
         }
     }
+    
 }
 
