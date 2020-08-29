@@ -18,6 +18,10 @@ namespace DCCurve
         GENODATA data;
         System.Xml.Serialization.XmlSerializer XMLS;
         public DCCurve dCCurve;
+        public Variables vars;
+        TResponse tR;
+        Constants c;
+        double leafTemperature;
         public DCCurveForm()
         {
             InitializeComponent();
@@ -51,15 +55,16 @@ namespace DCCurve
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);               
+                MessageBox.Show(ex.Message);
             }
+            leafTemperature = Convert.ToDouble(tLtextBox.Text);
 
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-        //    dCCurve = new DCCurve();
-        //    dCCurve.constants = new Constants();
+            //    dCCurve = new DCCurve();
+            //    dCCurve.constants = new Constants();
 
             XMLS = new System.Xml.Serialization.XmlSerializer(new DCCurve().GetType());
 
@@ -71,11 +76,11 @@ namespace DCCurve
 
             sw.Close();
         }
+
+        private void CalcLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            vars = new Variables(dCCurve.tResponse, dCCurve.constants, leafTemperature);
+        }
     }
 }
-/*
- * # Input parameters (A46)
-theta = 0.05
-PSlight_absorption = 2.2
-Jmaxt = 437.4645449
-*/
+

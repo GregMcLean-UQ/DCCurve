@@ -43,6 +43,7 @@
             this.thetaBox = new System.Windows.Forms.TextBox();
             this.psBox = new System.Windows.Forms.TextBox();
             this.jMaxBox = new System.Windows.Forms.TextBox();
+            this.CalcLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // ObsLabel
@@ -178,11 +179,23 @@
             this.jMaxBox.TabIndex = 13;
             this.jMaxBox.Text = "437.4645449";
             // 
+            // CalcLabel
+            // 
+            this.CalcLabel.AutoSize = true;
+            this.CalcLabel.Location = new System.Drawing.Point(21, 315);
+            this.CalcLabel.Name = "CalcLabel";
+            this.CalcLabel.Size = new System.Drawing.Size(119, 16);
+            this.CalcLabel.TabIndex = 14;
+            this.CalcLabel.TabStop = true;
+            this.CalcLabel.Text = "Calculate Variables";
+            this.CalcLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CalcLabel_LinkClicked);
+            // 
             // DCCurveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 554);
+            this.Controls.Add(this.CalcLabel);
             this.Controls.Add(this.jMaxBox);
             this.Controls.Add(this.psBox);
             this.Controls.Add(this.thetaBox);
@@ -223,6 +236,7 @@
         private System.Windows.Forms.TextBox thetaBox;
         private System.Windows.Forms.TextBox psBox;
         private System.Windows.Forms.TextBox jMaxBox;
+        private System.Windows.Forms.LinkLabel CalcLabel;
     }
 }
 
