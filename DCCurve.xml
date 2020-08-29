@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DCCurve xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <constants>
+    <abs>0.85</abs>
+    <f>0.15</f>
+    <gm25>1.2</gm25>
+    <x>0.4</x>
+    <alpha>0.1</alpha>
+    <gbsT>0.003</gbsT>
+    <Om>210000</Om>
+    <Rd25>0</Rd25>
+    <Phi>2</Phi>
+  </constants>
+  <tResponse>
+    <KcP25>1210</KcP25>
+    <KcEa>64200</KcEa>
+    <KoP25>292000</KoP25>
+    <KoEa>10500</KoEa>
+    <VcmaxP25>-1</VcmaxP25>
+    <VcmaxEa>78000</VcmaxEa>
+    <Vcmax_VomaxP25>5.513</Vcmax_VomaxP25>
+    <Vcmax_VomaxEa>21265</Vcmax_VomaxEa>
+    <KpP25>75</KpP25>
+    <KpEa>36300</KpEa>
+    <VpmaxP25>-1</VpmaxP25>
+    <VpmaxEa>57043</VpmaxEa>
+    <RdP25>-1</RdP25>
+    <RdEa>46390</RdEa>
+    <JP25>-1</JP25>
+    <JTMin>0</JTMin>
+    <JTOpt>37.9</JTOpt>
+    <JTMax>55</JTMax>
+    <JMaxC>0.711</JMaxC>
+    <Jbeta>1</Jbeta>
+    <GmP25>-1</GmP25>
+    <GmTMin>0</GmTMin>
+    <GmTOpt>42</GmTOpt>
+    <GmTMax>55</GmTMax>
+    <GmMaxC>0.463</GmMaxC>
+    <Gmbeta>1</Gmbeta>
+  </tResponse>
+</DCCurve>
