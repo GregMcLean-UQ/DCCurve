@@ -16,12 +16,8 @@ namespace DCCurve
     public partial class DCCurveForm : Form
     {
         GENODATA data;
-        System.Xml.Serialization.XmlSerializer XMLS;
         public DCCurve dCCurve;
-        public Variables vars;
-        TResponse tR;
-        Constants c;
-        double leafTemperature;
+
         public DCCurveForm()
         {
             InitializeComponent();
@@ -46,6 +42,7 @@ namespace DCCurve
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
             ModelLabel.Text = openFileDialog.FileName;
 
+            System.Xml.Serialization.XmlSerializer XMLS;
             XMLS = new System.Xml.Serialization.XmlSerializer(new DCCurve().GetType());
             try
             {
@@ -57,29 +54,22 @@ namespace DCCurve
             {
                 MessageBox.Show(ex.Message);
             }
-            leafTemperature = Convert.ToDouble(tLtextBox.Text);
+            // Do the variable calculations.
+            dCCurve.CalcVariales(Convert.ToDouble(tLtextBox.Text));
 
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //    dCCurve = new DCCurve();
-            //    dCCurve.constants = new Constants();
+            //    Save constants and parameters to the xml file
 
+            System.Xml.Serialization.XmlSerializer XMLS;
             XMLS = new System.Xml.Serialization.XmlSerializer(new DCCurve().GetType());
-
             StreamWriter sw = new StreamWriter(@"C:\Projects\DCCurve\DCCurve_.xml");
 
             XMLS.Serialize(sw, dCCurve);
-
             sw.Flush();
-
             sw.Close();
-        }
-
-        private void CalcLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            vars = new Variables(dCCurve.tResponse, dCCurve.constants, leafTemperature);
         }
     }
 }

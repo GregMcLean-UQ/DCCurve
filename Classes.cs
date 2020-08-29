@@ -50,15 +50,21 @@ namespace DCCurve
     {
         public double KcP25, KcEa, KoP25, KoEa, VcmaxP25, VcmaxEa, Vcmax_VomaxP25, Vcmax_VomaxEa, KpP25, KpEa,
             VpmaxP25, VpmaxEa, RdP25, RdEa, JP25, JTMin, JTOpt, JTMax, JMaxC, Jbeta, GmP25, GmTMin, GmTOpt, GmTMax, GmMaxC, Gmbeta;
-        
+
     }
     public class DCCurve
     {
         public Constants constants;
         public TResponse tResponse;
+        Variables vars;
         double theta = 0.05;
         double PSlight_absorption = 2.2;
         double Jmaxt = 437.4645449;
+        public void CalcVariales(double leafTemperature)
+        {
+            vars = new Variables(tResponse, constants, leafTemperature);
+        }
+
     }
 
     public class Variables

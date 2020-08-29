@@ -43,7 +43,6 @@
             this.thetaBox = new System.Windows.Forms.TextBox();
             this.psBox = new System.Windows.Forms.TextBox();
             this.jMaxBox = new System.Windows.Forms.TextBox();
-            this.CalcLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // ObsLabel
@@ -91,7 +90,7 @@
             // LoadModelLabel
             // 
             this.LoadModelLabel.AutoSize = true;
-            this.LoadModelLabel.Location = new System.Drawing.Point(21, 270);
+            this.LoadModelLabel.Location = new System.Drawing.Point(21, 70);
             this.LoadModelLabel.Name = "LoadModelLabel";
             this.LoadModelLabel.Size = new System.Drawing.Size(75, 16);
             this.LoadModelLabel.TabIndex = 4;
@@ -102,7 +101,7 @@
             // ModelLabel
             // 
             this.ModelLabel.AutoSize = true;
-            this.ModelLabel.Location = new System.Drawing.Point(159, 270);
+            this.ModelLabel.Location = new System.Drawing.Point(159, 70);
             this.ModelLabel.Name = "ModelLabel";
             this.ModelLabel.Size = new System.Drawing.Size(43, 16);
             this.ModelLabel.TabIndex = 5;
@@ -111,7 +110,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(400, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(856, 19);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(65, 16);
             this.linkLabel1.TabIndex = 6;
@@ -122,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 104);
+            this.label2.Location = new System.Drawing.Point(21, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 16);
             this.label2.TabIndex = 7;
@@ -131,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 131);
+            this.label3.Location = new System.Drawing.Point(21, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 8;
@@ -140,7 +139,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 159);
+            this.label4.Location = new System.Drawing.Point(21, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 16);
             this.label4.TabIndex = 9;
@@ -149,7 +148,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 187);
+            this.label5.Location = new System.Drawing.Point(21, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 10;
@@ -157,7 +156,7 @@
             // 
             // thetaBox
             // 
-            this.thetaBox.Location = new System.Drawing.Point(162, 128);
+            this.thetaBox.Location = new System.Drawing.Point(162, 176);
             this.thetaBox.Name = "thetaBox";
             this.thetaBox.Size = new System.Drawing.Size(85, 22);
             this.thetaBox.TabIndex = 11;
@@ -165,7 +164,7 @@
             // 
             // psBox
             // 
-            this.psBox.Location = new System.Drawing.Point(162, 156);
+            this.psBox.Location = new System.Drawing.Point(162, 204);
             this.psBox.Name = "psBox";
             this.psBox.Size = new System.Drawing.Size(85, 22);
             this.psBox.TabIndex = 12;
@@ -173,29 +172,17 @@
             // 
             // jMaxBox
             // 
-            this.jMaxBox.Location = new System.Drawing.Point(162, 184);
+            this.jMaxBox.Location = new System.Drawing.Point(162, 232);
             this.jMaxBox.Name = "jMaxBox";
             this.jMaxBox.Size = new System.Drawing.Size(85, 22);
             this.jMaxBox.TabIndex = 13;
             this.jMaxBox.Text = "437.4645449";
-            // 
-            // CalcLabel
-            // 
-            this.CalcLabel.AutoSize = true;
-            this.CalcLabel.Location = new System.Drawing.Point(21, 315);
-            this.CalcLabel.Name = "CalcLabel";
-            this.CalcLabel.Size = new System.Drawing.Size(119, 16);
-            this.CalcLabel.TabIndex = 14;
-            this.CalcLabel.TabStop = true;
-            this.CalcLabel.Text = "Calculate Variables";
-            this.CalcLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CalcLabel_LinkClicked);
             // 
             // DCCurveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 554);
-            this.Controls.Add(this.CalcLabel);
             this.Controls.Add(this.jMaxBox);
             this.Controls.Add(this.psBox);
             this.Controls.Add(this.thetaBox);
@@ -236,7 +223,6 @@
         private System.Windows.Forms.TextBox thetaBox;
         private System.Windows.Forms.TextBox psBox;
         private System.Windows.Forms.TextBox jMaxBox;
-        private System.Windows.Forms.LinkLabel CalcLabel;
     }
 }
 
